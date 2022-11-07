@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config()
 
 
@@ -16,7 +16,7 @@ const port = 5000
 
 
 
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
     const islavosongs = client.db("islavoaudio").collection("islavomusic");
     const islavoprimiumsongs = client.db("islavoaudio").collection("islavopremium");

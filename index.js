@@ -52,8 +52,8 @@ client.connect(err => {
 
     app.get( '/allishows', async (req, res) =>{
         const cursor = islavoshowss.find({});
-        const allishow = await cursor.toArray();
-        res.send(allishow);
+        const allishows = await cursor.toArray();
+        res.send(allishows);
     });
     app.post('/islavoshows', async (req, res) => {
         const ishow = req.body;
